@@ -17,6 +17,11 @@ function reply_str($text, $replyToken) {
 	$post = json_encode($data);	
 
 	$url = "https://api.line.me/v2/bot/message/reply";
+	curl_setopt($ch, CURLOPT_PROXY, $proxy);
+			curl_setopt($ch, CURLOPT_PROXYUSERPWD, $proxyauth);
+			$result = curl_exec($ch);
+	//		curl_close($ch);
+	
 	$header = array('http' => 
 					Array (	'header' =>
 								"Content-Type: application/json\r\n" .
